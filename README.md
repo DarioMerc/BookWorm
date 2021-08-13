@@ -20,4 +20,4 @@ Social media app for books. Users can review books and discuss them on a home fe
 
 ---
 
-In conclusion, while I wasn't able to take this project in the direction I wanted I have learnt a lot from it and
+In conclusion, while I wasn't able to take this project in the direction I wanted, I have learnt a lot from it and am already applying this new knowledge to new projects.
