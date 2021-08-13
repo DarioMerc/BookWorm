@@ -6,13 +6,13 @@ Social media app for books. Users can review books and discuss them on a home fe
 
 -   While a jwt token is created when logging in or registering, nothing is ever done with it. I gave up on authenticating the token because it was becoming too time consuming to figure out and i had to focus on more important things
 -   there is a 0.5 second delay on the search to prevent a fetch from happening on each letter that is typed.
--   Google's Book API really isnt the best. The search is meant to be sorted by relevancy but in my opinion its pretty bad. On top of that, the data returned can be pretty inconsistent. Sometimes the images, authors or categories are missing entirely.
+-   Google's Book API really isnt the best. The search is meant to be sorted by relevancy but in my opinion its pretty bad. On top of that, the data returned can be pretty inconsistent. Sometimes the images, authors or categories are missing entirely, and the category labels are horrible to begin with.
 
 # What I learnt from this project
 
 ## The importance of planning and organizing from the start.
 
-> I spent a lot of time rewritting parts of the project and copying styled components. By the time I reached the styling phase it was too late to utilize globalstyles.
+> I spent a lot of time rewriting various parts of the project. The frontend was esspecially messy at times and I definitely understand the importance of globalstyles now.
 
 ## Styling will always take longer than you expect
 
