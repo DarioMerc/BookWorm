@@ -6,14 +6,17 @@ import { themeVars } from "../GlobalStyle";
 import { UserContext } from "./UserContext";
 
 export const Search = () => {
+    //SEARCH
     const [search, setSearch] = useState("");
     const [searchStatus, setSearchStatus] = useState("initial");
     const [searchResults, setSearchResults] = useState([]);
+    const [resultCount, setResultCount] = useState(0);
 
-    //pagination
+    //PAGINATION
     const [startIndex, setStartIndex] = useState(0);
     const [page, setPage] = useState(1);
 
+    //API CAll - There is a delay setup so that a call doesn't get triggered for each letter.
     useEffect(() => {
         const delay = setTimeout(() => {
             if (search.trim() !== "") {
@@ -23,6 +26,7 @@ export const Search = () => {
                     .then((data) => {
                         console.log(data.data.items);
                         setSearchResults(data.data.items);
+                        setResultCount(data.data.totalItems);
                         setSearchStatus("idle");
                     });
             }
@@ -56,16 +60,19 @@ export const Search = () => {
                                 disabled={page == 1}
                                 onClick={() => {
                                     setPage(page - 1);
-                                    setStartIndex(startIndex - 20);
+                                    setStartIndex(startIndex - 10);
                                 }}
                             >
                                 Previous
                             </button>
-                            <p class="nomargin">Page {page}</p>
+                            <div style={{ display: "block" }}>
+                                <p class="nomargin">Page {page}</p>
+                                <p class="nomargin">{resultCount} results</p>
+                            </div>
                             <button
                                 onClick={() => {
                                     setPage(page + 1);
-                                    setStartIndex(startIndex + 20);
+                                    setStartIndex(startIndex + 10);
                                 }}
                             >
                                 Next

@@ -153,17 +153,31 @@ const updateFavorites = async (req, res) => {
 };
 
 //Reviews
-const getReviews = async (req, res) => {
+const getHomeFeed = async (req, res) => {
     const client = new MongoClient(MONGO_URI, options);
+    const _id = req.params._id;
+    const index = parseInt(req.params.startIndex);
     try {
         await client.connect();
         const db = client.db("Project");
-        const reviewsArray = await db.collection("reviews").find().toArray();
+
+        //Get array of friend IDs
+        const following = await db
+            .collection("users")
+            .findOne({ _id }, { projection: { "following._id": 1 } });
+        const friendsArray = following.following.map((e) => e._id);
+
+        //Get friends reviews
+        const homeFeed = await db
+            .collection("reviews")
+            .find({ "user._id": { $in: friendsArray } })
+            .sort({ timestamp: -1 })
+            .skip(index)
+            .limit(10)
+            .toArray();
         await client.close();
 
-        return res
-            .status(200)
-            .json({ status: 200, reviews: reviewsArray.reverse() });
+        return res.status(200).json({ status: 200, homeFeed });
     } catch (error) {
         return res.status(500).json({ status: 500, message: error });
     }
@@ -363,7 +377,7 @@ const searchBooks = async (req, res) => {
         const index = req.params.startIndex;
 
         const response = await request(
-            `https://www.googleapis.com/books/v1/volumes?q=${search}&key=${GOOGLE_API_KEY}&startIndex=${index}&maxResults=20`,
+            `https://www.googleapis.com/books/v1/volumes?q=${search}&key=${GOOGLE_API_KEY}&startIndex=${index}&maxResults=10`,
             {
                 headers: {
                     Accept: "application/json",
@@ -416,7 +430,7 @@ module.exports = {
     getUser,
     getUsers,
     updateFavorites,
-    getReviews,
+    getHomeFeed,
     getReview,
     getUsersReviews,
     postReview,

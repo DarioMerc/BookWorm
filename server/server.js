@@ -10,7 +10,7 @@ const {
     getUser,
     getUsers,
     updateFavorites,
-    getReviews,
+    getHomeFeed,
     getReview,
     postReview,
     postComment,
@@ -48,7 +48,7 @@ app.put("/api/favorite/:_id", updateFavorites);
 app.get("/api/:_id/favorites");
 
 //reviews
-app.get("/api/reviews", getReviews);
+app.get("/api/homefeed/:_id/:startIndex", getHomeFeed);
 app.get("/api/review/:_id", getReview);
 app.get("/api/reviews/user/:_id", getUsersReviews);
 app.post("/api/review", postReview);

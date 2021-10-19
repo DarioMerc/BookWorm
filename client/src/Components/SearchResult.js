@@ -102,10 +102,12 @@ const Result = styled.div`
     width: 50%;
     height: 20%;
     cursor: pointer;
+    padding: 10px;
 `;
 const Cover = styled.img`
     width: 20%;
     height: auto;
+    border: 1px solid black;
 `;
 const Header = styled.div`
     padding: 5px;
@@ -133,7 +135,9 @@ const ResultContent = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     height: auto;
-    border-left: 2px solid black;
+    border: 2px solid black;
+    margin: 0px 10px;
+    background-color: ${themeVars.primary};
 `;
 const Info = styled.p`
     margin: 0px 5px;
