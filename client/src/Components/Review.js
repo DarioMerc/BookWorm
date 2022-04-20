@@ -112,7 +112,7 @@ const Review = ({ review, isHomepage }) => {
                     )}
                 </Right>
             </Header>
-            <ReviewContent id="book" noComments={review.comments.length == 0}>
+            <ReviewContent id="book" noComments={review.comments.length === 0}>
                 <Cover id="book" src={review.book.cover} />
                 <ReviewInfo id="review">
                     <Title id="book">{review.book.title}</Title>

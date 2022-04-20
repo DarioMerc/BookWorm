@@ -1,4 +1,4 @@
-import React, { Children, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { themeVars } from "../GlobalStyle";
 import { Loading } from "./Loading";
@@ -39,7 +39,7 @@ export const Homepage = () => {
                         ) : (
                             <Pagination>
                                 <button
-                                    disabled={page == 1}
+                                    disabled={page === 1}
                                     onClick={() => {
                                         setPage(page - 1);
                                         setStartIndex(startIndex - 10);

@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { SearchResult } from "./SearchResult";
 import { Loading } from "./Loading";
 import { themeVars } from "../GlobalStyle";
-import { UserContext } from "./UserContext";
 import { useParams } from "react-router";
 
 export const SubjectSearch = () => {
@@ -29,7 +28,7 @@ export const SubjectSearch = () => {
                 setSearchResults(data.data.items);
                 setSearchStatus("idle");
             });
-    }, [startIndex]);
+    }, [startIndex, query]);
 
     return (
         <Wrapper>
@@ -49,7 +48,7 @@ export const SubjectSearch = () => {
                     {searchStatus === "idle" && (
                         <Pagination>
                             <button
-                                disabled={page == 1}
+                                disabled={page === 1}
                                 onClick={() => {
                                     setPage(page - 1);
                                     setStartIndex(startIndex - 20);

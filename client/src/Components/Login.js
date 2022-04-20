@@ -31,7 +31,7 @@ export const Login = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     // localStorage.setItem("token", data.token);
-                    if (data.status != 200) {
+                    if (data.status !== 200) {
                         setError(data.message);
                     } else {
                         let currentUser = data.user;

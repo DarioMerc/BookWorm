@@ -108,7 +108,7 @@ export const Book = () => {
                                                         {cat}
                                                     </Subject>
                                                     <span>
-                                                        {k !=
+                                                        {k !==
                                                             book.categories
                                                                 .length -
                                                                 1 && ", "}

@@ -55,7 +55,7 @@ export const Register = () => {
                 .then((data) => {
                     //add token to local storage
                     //add token to context
-                    if (data.status == 201) {
+                    if (data.status === 201) {
                         let currentUser = data.user;
                         localStorage.setItem("user", currentUser._id);
                         setUser(currentUser);

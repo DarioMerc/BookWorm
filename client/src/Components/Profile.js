@@ -2,7 +2,7 @@ import moment from "moment";
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import styled from "styled-components";
-import GlobalStyle, { themeVars } from "../GlobalStyle";
+import { themeVars } from "../GlobalStyle";
 import { Loading } from "./Loading";
 import StarRating from "./StarRating";
 import { UserContext } from "./UserContext";
@@ -38,7 +38,7 @@ export const Profile = () => {
             setProfilesReviews(profileReviewsData.reviews);
         }
         fetchData();
-    }, [user, profileID]);
+    }, [user, profileID, isUser]);
 
     const handleDeleteFavorite = (fav) => {
         fetch(`/api/favorite/${profile._id}`, {

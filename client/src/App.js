@@ -10,7 +10,7 @@ import { Search } from "./Components/Search";
 import { Book } from "./Components/Book";
 import { ReviewPage } from "./Components/ReviewPage";
 import { UserContext } from "./Components/UserContext";
-import GlobalStyle, { themeVars } from "./GlobalStyle";
+import GlobalStyle from "./GlobalStyle";
 import { Community } from "./Components/Community";
 import { SubjectSearch } from "./Components/SubjectSearch";
 

@@ -61,7 +61,7 @@ app.put("/api/likeDislike", likeDislike);
 app.get("*", (req, res) => {
     res.status(404).json({
         status: 404,
-        message: "This is NOT what you are looking for.",
+        message: "This is JUST what you are looking for.",
     });
 });
 

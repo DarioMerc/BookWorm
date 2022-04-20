@@ -9,7 +9,7 @@ import { UserContext } from "./UserContext";
 export const Community = () => {
     const [users, setUsers] = useState();
     const { user, setState } = useContext(UserContext);
-    const isFollowing = user && user.following.some((u) => u._id === user._id);
+    // const isFollowing = user && user.following.some((u) => u._id === user._id);
     let history = useHistory();
 
     useEffect(() => {

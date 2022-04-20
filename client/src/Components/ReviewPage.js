@@ -18,7 +18,7 @@ export const ReviewPage = () => {
                 console.log(data.review);
                 setReview(data.review);
             });
-    }, [user]);
+    }, [user, reviewID]);
 
     return (
         <Wrapper>
